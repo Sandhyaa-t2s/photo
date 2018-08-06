@@ -1,0 +1,114 @@
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+var empty = require('is-empty');
+var jwt = require('jsonwebtoken');
+var MongoClient = require('mongodb').MongoClient;
+
+
+const port = process.env.PORT || 5000;
+var db;
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.listen(port, () => console.log(`Listening on port ${port}`));
+
+MongoClient.connect('mongodb://localhost:27017', { useNewUrlParser: true }, (err, client) => {
+    if (err) return console.log(err);
+    db = client.db('photoviewer_db');
+    console.log("Mongodb is opened.")
+})
+
+
+    app.get('/authentication', (req, res) => {  
+          console.log("aesgdjhgjhk")   
+           db.collection('login').find().toArray((err, result) => {      
+                 if (err) {     
+                            console.log(err)       
+                                 // return        
+                                }
+                                        console.log(typeof(result))
+                                                res.send(result)    
+                                            })});
+
+app.post('/authentication/signup', (req, res) => {
+    console.log("Signup Post Method call");
+    console.log(req.body);
+    let { username, name, password } = req.body;
+    db.collection('login').findOne({ username }, (err, result) => {
+        if (err) {
+            console.log(err)
+            res.json({
+                message: err,
+                status: false
+            })
+        } else {
+            console.log(result);
+            if (empty(result)) {
+                db.collection('login').save({ name, username, password }, (err, result) => {
+                    if (err) {
+                        console.log(err)
+                    } else {
+                        console.log('saved to database')
+                        res.json({
+                            message: "Signed Up Successfully.",
+                            status: true
+                        })
+                    }
+                })
+            } else {
+                console.log("*Username is already exists.")
+                res.json({
+                    message: "*Username is already exists.",
+                    status: false
+                })
+            }
+        }
+    })
+
+})
+app.post('/authentication/signin', (req, res) => {
+    console.log("SignIn Post Method call");
+    console.log(req.body);
+    let { username, password } = req.body;
+
+    db.collection('login').findOne({ username }, (err, result) => {
+        if (err) {
+            console.log(err)
+            res.json({
+                message: err,
+                status: false
+            })
+        } else {
+            console.log(result)
+            if (!empty(result)) {
+                if (password === result.password) {
+                    // var {_id,name} = result
+                    // console.log(name,_id)
+                    // console.log("Admin is Logged in Successfully")
+                    // jwt.sign({ _id,name,username }, 'secretkey',{ expiresIn : '30s' }, (err, token) => {
+                    res.json({
+                        // token,
+                        name:result.name,
+                        message: "user is Logged in Successfully",
+                        status: true
+                    })
+                    // })
+                } else {
+                    console.log("*Password is invalid")
+                    res.json({
+                        message: "*Password is invalid",
+                        status: false
+                    })
+                }
+            } else {
+                console.log("*Username is invalid.")
+                res.json({
+                    message: "*Username is invalid",
+                    status: false
+                })
+            }
+        }
+    })
+})

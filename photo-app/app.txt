@@ -1,0 +1,40 @@
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      fields : {
+        client_id : "ab8ee4f08cda4f77a685ccad6289d5b8",
+        redirectUri : 'http://localhost:5000/handleAuth'
+      }
+    }
+  }
+
+  // handleClickInsta(){
+  //   console.log("Instagram Photos")
+  //   let url = `http://localhost:5000/akilash`
+  //   request.get(url)
+  //   .end((err,res)=>{
+  //     if(err){
+  //       console.log("Error",err)
+  //     }else{
+  //       console.log("Hello Instagram.!!")
+  //       console.log(JSON.parse(res.text))
+  //     }
+  //   })
+  // }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        <div className="App-intro">
+          <a href={`https://api.instagram.com/oauth/authorize/?client_id=${this.state.fields.client_id}&redirect_uri=${this.state.fields.redirectUri}&response_type=code`}>
+          <button>Instagram Photos</button></a>
+        </div>
+      </div>
+    );
+  }
+}

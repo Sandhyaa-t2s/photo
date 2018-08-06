@@ -1,0 +1,238 @@
+.App-name {
+  color : yellowgreen;
+  font-size: 40px;
+  font-family: 'Harabara Bold', Arial, sans-serif;
+  margin-bottom: 0%;
+  margin-bottom :0%;
+  /* border : 5px solid red; */
+}
+
+.App {
+  text-align: center;
+}
+
+/* .App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+} */
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* style the container */
+.container {
+  position: absolute;
+  border-radius: 5px;
+  background-color: rgba(15, 19, 18, 0.5);
+  
+  right: 33%;
+  margin: 20px;
+  max-width: 400px;
+  padding: 16px;
+
+  /* opacity: 0.85; */
+} 
+
+
+/* style inputs and link buttons */
+input,
+.btn {
+  width: 100%;
+  padding: 19px;
+  border: none;
+  border-radius: 4px;
+  margin: 20px 0;
+  /* opacity: 0.85; */
+  display: inline-block;
+  font-size: 13px;
+  line-height: 10px;
+  text-decoration: none; /* remove underline from anchors */
+}
+
+input:hover,
+.btn:hover {
+  opacity: 1;
+}
+
+/* add appropriate colors to fb, twitter and google buttons */
+.fb {
+  background-color: #3B5998;
+  color: white;
+}
+
+.Instagram {
+  background-color:purple;
+  color: white;
+}
+
+.google {
+  background-color: #dd4b39;
+  color: white;
+}
+
+/* style the submit button */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+input[type=forgot] {
+  background-color:red;
+  color: white;
+  cursor: pointer;
+}
+input[type=sign] {
+  background-color:red;
+  color: white;
+  cursor: pointer;
+}
+/* Two-column layout */
+.col {
+  float: left;
+  width: 50%;
+  margin: auto;
+  padding: 0 50px;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* vertical line */
+.vl {
+  position: relative;
+  left : 50%;
+  transform: translate(-50%);
+  border: 2px solid #ddd;
+  width: 375px;
+  padding-top: 0%;
+}
+
+/* text inside the vertical line */
+.vl-innertext {
+  position: absolute;
+  
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding : 10px 10px;
+}
+
+/* hide some text on medium and large screens */
+.hide-md-lg {
+  display: none;
+}
+
+/* bottom container */
+/* .top-container {
+  text-align: left;
+  /* background-color: #666; */
+  /* border-radius: 0px 0px 4px 4px; */
+  /* position: relative; */
+  /* border-radius: 5px; */
+  /* background-color: #f2f2f2; */;
+  /* padding: 10px 0 10px 0 */
+/* } */ 
+
+/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 650px) {
+  /* .col {
+    width: 100%;
+    margin-top: 0;
+  } */
+  /* hide the vertical line */
+  .vl {
+    display: none;
+  }
+  /* show the hidden text on small screens */
+  .hide-md-lg {
+    display: block;
+  }
+}
+.bg-img {
+  /* The image used */
+  background-image: url("NO.jpg");
+
+  min-height: 1000px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.contain{
+  opacity: 0.75;
+}
+.containerss {
+  position: relative;
+  right: 0;
+  margin: 30px;
+  max-width: 400px;
+  padding: 16px;
+  /* background-color:grey; */
+
+}
+
+.button {
+  background-color:#f44242;
+}
+.button {
+  width: 100%;
+  padding: 19px;
+  border: none;
+  border-radius: 4px;
+  margin: 30px 0;
+  /* opacity: 0.85; */
+  display: inline-block;
+  font-size: 15px;
+  line-height: 10px;
+  color : white;
+  text-decoration: none; /* remove underline from anchors */
+}
+
+.containers {
+  position: absolute;
+  right: 0;
+  margin: 20px;
+  border-radius: 5px;
+  max-width: 400px;
+  padding: 15px;
+   background-color:rgba(15, 19, 18, 0.5);
+  /* opacity: 0.85; */
+  top : 30px;
+  line-height: 0%;
+};
+
